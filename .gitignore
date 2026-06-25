@@ -7,3 +7,16 @@
 # React Router
 /.react-router/
 /build/
+
+# ── AI / spec-kit tooling & generated planning docs (kept local, not tracked) ──
+.claude/
+.specify/
+CLAUDE.md
+AGENTS.md
+admin-speckit/
+specs/
+PLAN.md
+ADMIN.md
+ADMIN_INTEGRATION_PLAN.md
+BACKEND_SPEC.md
+docs/
