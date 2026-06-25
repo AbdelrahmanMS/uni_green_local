@@ -1,15 +1,72 @@
 @import "tailwindcss";
 
+/*
+  UniGreen Admin design tokens — derived from the design prototype.
+  Exposed as Tailwind theme colors so utilities like `bg-primary`, `text-muted`,
+  `border-line` work across the app. Tajawal is the brand typeface (Arabic-first).
+*/
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Tajawal", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+
+  --color-primary: #2d6a4f;
+  --color-primary-hover: #1b4332;
+  --color-accent: #40916c;
+  --color-leaf: #52b788;
+  --color-light-bg: #d8f3dc;
+  --color-very-light: #f0faf5;
+  --color-page: #f4f6f4;
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --color-info: #2563eb;
+  --color-success: #16a34a;
+
+  /* level badge palette */
+  --color-bronze-bg: #fef3c7;
+  --color-bronze-fg: #92400e;
+  --color-silver-bg: #f1f5f9;
+  --color-silver-fg: #475569;
+  --color-gold-bg: #fefce8;
+  --color-gold-fg: #a16207;
+  --color-platinum-bg: #ede9fe;
+  --color-platinum-fg: #6d28d9;
+}
+
+html {
+  direction: rtl;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-page text-ink antialiased;
+  font-family: var(--font-sans);
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+/* Accessible focus ring for keyboard users */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Print: show only the QR print area */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    text-align: center;
+  }
+  .no-print {
+    display: none !important;
   }
 }

@@ -1,7 +1,7 @@
 import type { Config } from "@react-router/dev/config";
 
 export default {
-  // Config options...
-  // Server-side render by default, to enable SPA mode set this to `false`
-  ssr: true,
+  // SPA mode: the admin panel authenticates with a localStorage bearer token and
+  // calls the unigreen_be backend directly from the client, so there is no SSR.
+  ssr: false,
 } satisfies Config;
